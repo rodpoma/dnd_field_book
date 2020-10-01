@@ -1,0 +1,56 @@
+html {
+  min-height: 100%;
+  background-image: url(https://cdn.pixabay.com/photo/2016/06/26/22/33/background-1481479_960_720.jpg);
+  background-size: cover;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  margin-top: 10px;
+  height: 35vmin;
+  pointer-events: none;
+}
+
+.button {
+  margin: 0 5px;
+  color: black;
+  font-family: "Papyrus";
+  background: linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+  background-color: #eae0c2;
+  border-radius: 42px;
+  display: inline-block;
+  cursor: pointer;
+  color: #505739;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px 20px;
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 15s linear;
+  }
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  font-family: "Papyrus";
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
