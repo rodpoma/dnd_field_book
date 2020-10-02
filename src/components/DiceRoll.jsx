@@ -1,44 +1,48 @@
 import React, {useState} from "react";
-import Button from "@material-ui/core/Button";
-import d20 from "./d20.png";
+import {Button, ButtonGroup} from "@material-ui/core";
+import d20 from "./assets/d20.png";
+import jojo from "./assets/Jojo face.png";
 import "./DiceRoll.css";
 
 const DiceRoll = () => {
   const [dice, setDice] = useState(0);
   const [sides, setSides] = useState(20);
-
-  const roll = () => {
-    const result = Math.ceil(Math.random() * sides);
-    setDice(result);
-  };
+  const [toggle, setToggle] = useState(false);
 
   return (
     <div className="App">
       <header className="App-header">
-        <h2>Dungeons and Dragons Dice</h2>
+        <h2>Dungeons and Dice</h2>
+        <Button className="button" onClick={() => setToggle(!toggle)}>
+          {toggle === false ? "Intensify" : "ITS TOO MUCH POWER!"}
+        </Button>
         <h3>Current Die Size: {sides}</h3>
-        <div className="diceSelector">
-          <button className="button" onClick={() => setSides(4)}>
+        <ButtonGroup aria-label="outlined primary button group">
+          <Button className="button" size="large" onClick={() => setSides(4)}>
             4
-          </button>
-          <button className="button" onClick={() => setSides(6)}>
+          </Button>
+          <Button className="button" size="large" onClick={() => setSides(6)}>
             6
-          </button>
-          <button className="button" onClick={() => setSides(8)}>
+          </Button>
+          <Button className="button" size="large" onClick={() => setSides(8)}>
             8
-          </button>
-          <button className="button" onClick={() => setSides(10)}>
+          </Button>
+          <Button className="button" size="large" onClick={() => setSides(10)}>
             10
-          </button>
-          <button className="button" onClick={() => setSides(12)}>
+          </Button>
+          <Button className="button" size="large" onClick={() => setSides(12)}>
             12
-          </button>
-          <button className="button" onClick={() => setSides(20)}>
+          </Button>
+          <Button className="button" size="large" onClick={() => setSides(20)}>
             20
-          </button>
-        </div>
-        <Button onClick={roll}>
-          <img src={d20} className="App-logo" alt="logo" />
+          </Button>
+        </ButtonGroup>
+        <Button onClick={() => setDice(Math.ceil(Math.random() * sides))}>
+          {toggle === false ? (
+            <img src={d20} className="App-logo" alt="logo" />
+          ) : (
+            <img src={jojo} className="App-logo" alt="logo" />
+          )}
         </Button>
         <h1>Roll: {dice}</h1>
       </header>
