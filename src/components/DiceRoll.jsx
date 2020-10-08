@@ -3,6 +3,7 @@ import {Button, ButtonGroup} from "@material-ui/core";
 import d20 from "./assets/d20.png";
 import jojo from "./assets/Jojo face.png";
 import "./DiceRoll.css";
+import {MDBContainer} from "mdbreact";
 
 const DiceRoll = () => {
   const [dice, setDice] = useState(0);
@@ -10,13 +11,13 @@ const DiceRoll = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <div className="App">
+    <MDBContainer fluid className="page">
       <header className="App-header">
         <h2>Dungeons and Dice</h2>
         <Button className="button" onClick={() => setToggle(!toggle)}>
           {toggle === false ? "Intensify" : "ITS TOO MUCH POWER!"}
         </Button>
-        <h3>Current Die Size: {sides}</h3>
+        <h3 className="mt-5">Current Die Size: {sides}</h3>
         <ButtonGroup aria-label="outlined primary button group">
           <Button className="button" size="large" onClick={() => setSides(4)}>
             4
@@ -44,9 +45,9 @@ const DiceRoll = () => {
             <img src={jojo} className="App-logo" alt="logo" />
           )}
         </Button>
-        <h1>Roll: {dice}</h1>
+        <h1 className="mt-5">Roll: {dice}</h1>
       </header>
-    </div>
+    </MDBContainer>
   );
 };
 
